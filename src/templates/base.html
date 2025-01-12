@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Development Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+</head>
+
+<body>
+    <div class="noise"></div>
+    <header>
+        <h1>Personal Development Dashboard</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_goal') }}">Add Goal</a>
+        </nav>
+        <p class="motivation">"The only way to do great work is to love what you do." - Steve Jobs</p>
+    </header>
+    <main>
+        <div class="goals-card">
+            <div class="goals-content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

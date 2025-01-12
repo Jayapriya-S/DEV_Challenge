@@ -1,0 +1,404 @@
+:root {
+    --bg-primary: #2a0f3c;
+    --bg-secondary: #4a1259;
+    --accent: #ff8fa3;
+    --text: #fff4e6;
+    --heading: #ffd4d4;
+    --button-hover: #ff6b6b;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes noise {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    10% {
+        transform: translate(-5%, -5%)
+    }
+
+    20% {
+        transform: translate(-10%, 5%)
+    }
+
+    30% {
+        transform: translate(5%, -10%)
+    }
+
+    40% {
+        transform: translate(-5%, 15%)
+    }
+
+    50% {
+        transform: translate(-10%, 5%)
+    }
+
+    60% {
+        transform: translate(15%, 0)
+    }
+
+    70% {
+        transform: translate(0, 10%)
+    }
+
+    80% {
+        transform: translate(-15%, 0)
+    }
+
+    90% {
+        transform: translate(10%, 5%)
+    }
+
+    100% {
+        transform: translate(5%, 0)
+    }
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.noise {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3C/rect width="100%" height="100%" filter="url(%23noise)" opacity="0.075"/%3E%3C/svg%3E');
+    animation: noise .2s infinite;
+    opacity: .1;
+    z-index: 1;
+    pointer-events: none;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem 2rem;
+    /* Reduced from 4rem to 2rem */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    /* Reduced from 4.5rem to 3.5rem */
+    color: var(--heading);
+    margin-bottom: 1rem;
+    /* Reduced from 2rem to 1rem */
+    letter-spacing: -1px;
+    text-shadow: 3px 3px 0px rgba(255, 107, 107, 0.3);
+}
+
+.motivation {
+    font-size: 1.1rem;
+    /* Reduced from 1.2rem to 1.1rem */
+    color: var(--text);
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 1rem auto;
+    /* Reduced from 2rem to 1rem */
+    letter-spacing: 0.5px;
+}
+
+nav {
+    margin: 1.5rem 0;
+    /* Reduced from 3rem to 1.5rem */
+}
+
+nav a {
+    display: inline-block;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    /* Reduced from 0.8rem 2rem */
+    margin: 0 1rem;
+    border: 2px solid var(--accent);
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+}
+
+nav a:hover {
+    background: var(--button-hover);
+    border-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+}
+
+.goals-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 1rem;  /* Reduced from 1.5rem */
+    margin: 1rem auto;
+    /* Reduced from 2rem to 1rem */
+    max-width: 800px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.goals-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--heading);
+    margin-bottom: 1rem;  /* Reduced from 1.5rem */
+    margin-top: -0.5rem;  /* Added negative margin to pull heading up */
+    text-align: center;
+    text-shadow: 2px 2px 0px rgba(255, 107, 107, 0.2);
+}
+
+.goals-content {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;  /* Reduced from 1.5rem */
+}
+
+.goals-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.goals-content li {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 1rem 0;
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    transition: transform 0.3s ease;
+}
+
+.goals-content li:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.goals-content button {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.goals-content button:hover {
+    background: var(--button-hover);
+    border-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+}
+
+/* Form Styles */
+.goal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.form-group textarea,
+.form-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.8rem;
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group textarea:focus,
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 143, 163, 0.1);
+}
+
+.submit-btn {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--text);
+    padding: 0.8rem 2rem;
+    border-radius: 100px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    align-self: center;
+}
+
+.submit-btn:hover {
+    background: var(--button-hover);
+    border-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+}
+
+.complete-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    margin-left: 1.5rem;  /* Increased from 0.5rem */
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.status-completed {
+    color: #4ade80;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(74, 222, 128, 0.1);
+    border-radius: 100px;
+    margin-left: 0.5rem;
+}
+
+.goal-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    padding: 0.5rem;
+}
+
+.goal-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.goal-main strong {
+    display: block;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.goal-date {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text);
+    opacity: 0.7;
+    margin-top: 0.2rem;
+    padding-left: 0.2rem;
+    line-height: 1.4;
+}
+
+.goal-action {
+    flex-shrink: 0;
+    align-self: flex-start;
+    padding-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        /* Reduced from 3rem to 2.5rem */
+    }
+
+    .motivation {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    nav a {
+        display: block;
+        margin: 1rem auto;
+        max-width: 200px;
+    }
+
+    .goals-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .goals-card h2 {
+        font-size: 2rem;
+    }
+
+    .goal-form {
+        padding: 0 1rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .goal-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .goal-main {
+        padding-right: 0;
+    }
+
+    .goal-action {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .complete-link {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Add smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg-primary);
+}

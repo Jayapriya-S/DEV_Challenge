@@ -1,0 +1,153 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0; /* Previously 10px 0 */
+    padding: 10px 15px;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    /* Remove flex-wrap if you want everything on a single line */
+    flex-wrap: nowrap; /* Change from wrap to nowrap if desired */
+}
+
+button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+}
+
+.delete-icon {
+    width: 16px;  /* Adjusted size */
+    height: 16px; /* Adjusted size */
+    stroke: #dc3545;
+}
+
+.delete-btn:hover .delete-icon {
+    stroke: #c82333;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.goal-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.goal-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.date-group {
+    position: relative;
+}
+
+.date-input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+input[type="date"] {
+    position: relative;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Override default calendar icon position */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    .goal-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .goal-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
